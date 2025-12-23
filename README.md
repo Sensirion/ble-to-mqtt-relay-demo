@@ -1,7 +1,7 @@
 # BLE 2 MQTT
 A simple BLE to MQTT relay using Unified Prototyping Toolkit (UPT) libraries. The goal is to relay BLE measurements from Sensirion gadgets to an MQTT server to be collected and further analyzed. Such device can be used in SmartHome scenarios for example.
 
-
+![banner schema](./resources/banner.png)
 ## Get started
 To get started with this sample code, follow the steps:
 1. Install and open `Visual Studio Code` with the `PlatformIO` extension.
