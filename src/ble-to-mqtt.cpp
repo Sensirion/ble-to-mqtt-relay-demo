@@ -2,18 +2,11 @@
 #include "MqttMailingService.h"
 #include <Arduino.h>
 #include <MeasurementFormatting.hpp>
-
+#include "config.h"
 
 using namespace sensirion::upt::core;
 using namespace sensirion::upt::ble_auto_detection;
 using namespace sensirion::upt::mqtt;
-
-// Configuration
-constexpr auto ssid = "ap-name";
-constexpr auto password = "ap-pass.";
-constexpr auto broker_uri = "mqtt://mqtt.myserverdomain.com:1883";
-// constexpr const auto ssl_cert =
-//     "------BEGIN CERTIFICATE-----\nmy-certificate\n-----END CERTIFICATE-----";
 
 MqttMailingService mqttMailingService;
 SensirionBleScanner bleScanner = SensirionBleScanner();
@@ -24,12 +17,12 @@ void setup() {
     delay(2000); // Wait for potential serial connection
 
     // Configure the MQTT mailing service
-    mqttMailingService.setBrokerURI(broker_uri);
+    mqttMailingService.setBrokerURI(MQTT_BROKER_URI);
     // [Optional] set a prefix that will be prepended to the topic defined in the messages
-    mqttMailingService.setGlobalTopicPrefix("myExamplePrefix/bleRelay/");
+    mqttMailingService.setGlobalTopicPrefix(MQTT_TOPIC_PREFIX);
 
     // [Optional] Uncomment next line for SSL connection
-    // mqttMailingService.setSslCertificate(ssl_cert);
+    // mqttMailingService.setSslCertificate(MQTT_SSL_CERT);
 
     // Set a formatting function to be able to send Measurements
     mqttMailingService.setMeasurementMessageFormatterFn(DefaultMeasurementFormatter{});
@@ -42,10 +35,10 @@ void setup() {
     // A blocking start ensure that connection is established before starting
     // sending messages.
     bool blockingStart = true;
-    mqttMailingService.startWithDelegatedWiFi(ssid, password, blockingStart);
+    mqttMailingService.startWithDelegatedWiFi(WIFI_SSID, WIFI_PASSWORD, blockingStart);
 
     ESP_LOGI("SETUP", "MQTT Mailing Service started and connected !");
-    mqttMailingService.sendTextMessage("Device connected !", "myExamplePrefix/bleRelay/status");
+    mqttMailingService.sendTextMessage("Device connected !", "status");
 
     bleScanner.begin();
 }
