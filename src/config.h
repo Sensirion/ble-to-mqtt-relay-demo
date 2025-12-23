@@ -1,0 +1,5 @@
+#define WIFI_SSID "ap-name"
+#define WIFI_PASSWORD "ap-pass."
+#define MQTT_BROKER_URI "mqtt://mqtt.myserverdomain.com:1883"
+#define MQTT_SSL_CERT "------BEGIN CERTIFICATE-----\nmy-certificate\n-----END CERTIFICATE-----"
+#define MQTT_TOPIC_PREFIX "myExamplePrefix/bleRelay/"

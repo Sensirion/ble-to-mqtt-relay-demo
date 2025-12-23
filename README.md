@@ -8,12 +8,12 @@ To get started with this sample code, follow the steps:
 2. Download/clone the repository to your computer.
 3. Open the project folder into `PlatformIO`.
 4. Customize the target board inside the `platformio.ini` file.
-5. Modify the script to add correct WiFi and MQTT information
+5. Modify `config.h` to add correct WiFi and MQTT information
 7. Flash the firmware
 
 ## Get further
 ### MQTT advanced configuration
-SSL is commented out by default but can be enabled in the main script.
+SSL is commented out by default but can be enabled in the main script once a certificate is added in the configuration file.
 
 You can customize the MQTT message format and the function defining which topic is used. This will allow you to match any formating or structure used by your broker and application.
 
