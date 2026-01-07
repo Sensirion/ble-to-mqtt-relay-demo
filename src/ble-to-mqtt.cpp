@@ -25,10 +25,10 @@ void setup() {
     // mqttMailingService.setSslCertificate(MQTT_SSL_CERT);
 
     // Set a formatting function to be able to send Measurements
-    mqttMailingService.setMeasurementMessageFormatterFn(DefaultMeasurementFormatter{});
+    mqttMailingService.setMeasurementMessageFormatterFn(FullMeasurementFormatter{});
 
-    // Set a topic suffix function to be able to send Measurements
-    mqttMailingService.setMeasurementToTopicSuffixFn(DefaultMeasurmentToTopicSuffix{});
+    // Disable topic suffix creation based on Measurement
+    mqttMailingService.setMeasurementToTopicSuffixFn(MeasurementToTopicSuffixEmpty{});
 
     ESP_LOGI("SETUP", "MQTT Mailing Service starting and connecting ....");
 

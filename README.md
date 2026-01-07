@@ -11,6 +11,9 @@ To get started with this sample code, follow the steps:
 5. Modify `config.h` to add correct WiFi and MQTT information
 7. Flash the firmware
 
+## Associated documentation
+An introduction article about this demo was shared on *Hackster.io*, you can find it [there](https://www.hackster.io/sensirion-software/send-ble-measurements-to-mqtt-e77217)
+
 ## Get further
 ### MQTT advanced configuration
 SSL is commented out by default but can be enabled in the main script once a certificate is added in the configuration file.
